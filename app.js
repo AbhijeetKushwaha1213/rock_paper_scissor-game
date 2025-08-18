@@ -15,66 +15,26 @@ const playgame=(choiceId)=>{
     console.log("user choice",choiceId)
     const compchoice=getcompchoice();
     console.log("computer choice",compchoice);
-    if(choiceId==="rock" && compchoice==="rock"){
+    if(choiceId===compchoice){
         console.log("Game Draw");
         msg.innerText="Game Draw";
          msg.style.backgroundColor="black";
     }
-     else if(choiceId==="paper" && compchoice==="paper"){
-        console.log("game draw");
-        msg.innerText="Game Draw";
-          msg.style.backgroundColor="black";
-    }
-     else if(choiceId==="paper" && compchoice==="rock"){
+     else if(choiceId==="paper" && compchoice==="rock" || choiceId==="rock" && compchoice==="scissor" || choiceId==="scissor" && compchoice==="paper"){
         console.log("user win");
         msg.innerText="User win";
          msg.style.backgroundColor="green";
          userScore++;
           userscore.innerText=userScore;
     }
-     else if(choiceId==="rock" && compchoice==="scissor"){
-        console.log("user win");
-        msg.innerText="User win";
-          msg.style.backgroundColor="green";
-          userScore++;
-           userscore.innerText=userScore;
-    }
-     else if(choiceId==="scissor" && compchoice==="paper"){
-        console.log("user win");
-        msg.innerText="User win";
-         msg.style.backgroundColor="green";
-         userScore++;
-          userscore.innerText=userScore;
-    }
-     else if(choiceId==="paper" && compchoice==="scissor"){
+     else if(choiceId==="paper" && compchoice==="scissor" || choiceId==="rock" && compchoice==="paper"|| choiceId==="scissor" && compchoice==="rock"){
         console.log("computer win");
        msg.innerText="Computer Win";
          msg.style.backgroundColor="red";
          copmScore++;
           computerscore.innerText=copmScore;
     }
-     else if(choiceId==="rock" && compchoice==="paper"){
-        console.log("computer win");
-        msg.innerText="Computer Win";
-          msg.style.backgroundColor="red";
-          copmScore++;
-           computerscore.innerText=copmScore;
-    } 
-    else if (choiceId==="scissor" && compchoice==="scissor"){
-        console.log("game draw");
-        msg.innerText="Game Draw";
-            msg.style.backgroundColor="black";
-    }
-         else if(choiceId==="scissor" && compchoice==="rock"){
-        console.log("computer win");
-        msg.innerText="Computer Win";
-          msg.style.backgroundColor="red";
-          copmScore++;
-           computerscore.innerText=copmScore;
-    }
-
 }
-
 choices.forEach((choice) => {
     choice.addEventListener("click", () => {
         const choiceId=choice.getAttribute("id")
